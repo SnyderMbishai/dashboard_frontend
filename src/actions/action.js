@@ -110,8 +110,8 @@ function fetchBottomFiveCountriesByPending(){
     return (dispatch) => {
         dispatch(fetchBottomFivePending());
         return axios.get(`${base_url}/least_five_pending`)
-            .then(payload => //{console.log(payload)
-                dispatch(fetchBottomFivePendingSuccess(payload.data))//}
+            .then(payload => 
+                dispatch(fetchBottomFivePendingSuccess(payload.data))
                 )
             .catch(errorMessage => dispatch(fetchBottomFivePendingFails(errorMessage)));
     };
@@ -121,9 +121,8 @@ function fetchBottomFiveCountriesByPending(){
 function fetchFilteredByDate(params){
     return (dispatch) => {
         dispatch(fetchTotalProducedByDate());
-        return axios.get(`${base_url}/filter_by_date?start_date=${params.start}&end_date=${params.end}`)
+        return axios.get(`${base_url}/filter_by_date?start=${params.start}&end=${params.end}`)
             .then(payload => {
-                console.log(payload.data, "thiiiiiiiiiiiii")
                 dispatch(fetchTotalProducedByDateSuccess(payload.data))
             }
                 )
