@@ -5,10 +5,10 @@ import rejectedReducers from './rejectedReducers';
 import rangeReducers from './rangeReducers';
 
 const rootReducer = combineReducers({
-    pendingReducers,
-    producedReducers,
-    rejectedReducers,
-    rangeReducers,
+    pending : pendingReducers,
+    produced : producedReducers,
+    rejected : rejectedReducers,
+    range : rangeReducers,
 });
 
 export default rootReducer;
