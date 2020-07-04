@@ -1,10 +1,9 @@
 import * as types from '../actions/actionTypes';
 
 const initialState = {
-    items : [],
+    range_items : [],
     item : {},
     count : 0,
-    success : false,
 };
 
 export default function (state = initialState, action){
@@ -12,7 +11,7 @@ export default function (state = initialState, action){
         case types.TOTAL_PRODUCED_BY_DATE:
             return { ...state };
         case types.TOTAL_PRODUCED_BY_DATE_SUCCESS:
-            return { ...state, items: action.payload };
+            return { ...state, range_items: action.payload };
         case types.TOTAL_PRODUCED_BY_DATE_FAILS:
             return { ...state, error: action.error}
         default:
