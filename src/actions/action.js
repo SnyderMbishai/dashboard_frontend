@@ -83,7 +83,7 @@ const fetchTotalProducedByDateFails = (errorMessage) => (
     }
 );
 
-const base_url = "http://localhost:8000/api";
+const base_url = "https://dashboard-backend11.herokuapp.com/api";
 
 // fetch top 10 countries by produced
 function fetchCountriesByProduced(){
