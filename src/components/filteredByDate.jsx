@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchFilteredByDate } from '../actions/action';
+import './graphs.css';
+import {Line} from 'react-chartjs-2';
 
 class FilteredByDateRange extends Component {
     componentDidMount(){
@@ -13,14 +15,39 @@ class FilteredByDateRange extends Component {
 
 
     render(){
+        const data = {
+            labels:this.props.items.map(el=> el.name),
+    datasets: [
+      {
+        label: 'Produced units',
+        fill: false,
+        backgroundColor: 'rgba(75,192,192,1)',
+        borderColor: 'rgba(0,0,0,1)',
+        borderWidth: 2,
+        data: this.props.items.map(el=> el.unit_sum)
+      }
+    ]
+        };
         return(
-            <ul>
-                <h1>4</h1>
-                {console.log(this.props.items)}
-                {this.props.items.map(element => (
-                    <li key={element.name}>{element.name}</li>
-                ))}
-            </ul>
+            <div>               
+                <div className="graph">
+                <Line
+                    data={data}
+                    options={{
+                        title:{
+                        display:true,
+                        text:'Total Produced Units over 2020-02-28 to 2020-02-28',
+                        fontSize:20
+                        },
+                        legend:{
+                        display:true,
+                        position:'right'
+                        }
+                    }}
+                    />
+                </div>                
+            </div>
+          
         );
     }
 }
