@@ -30,7 +30,7 @@ class BottomFiveByPending extends Component {
                     options={{
                         title:{
                         display:true,
-                        text:'Least 5 Countries By Total Pending Units',
+                        text:'Least Five Countries By Total Pending Units',
                         fontSize:20
                         },
                         legend:{
